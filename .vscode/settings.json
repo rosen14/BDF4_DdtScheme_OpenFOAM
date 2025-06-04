@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "bdf4DdtSchemes.C": "cpp",
+        "bdf4DdtScheme.C": "cpp",
+        "icoFoam.C": "cpp",
+        "expDecayODE.C": "cpp"
+    }
+}
