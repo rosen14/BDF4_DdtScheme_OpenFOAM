@@ -1,0 +1,3 @@
+cosODEFoam.C
+
+EXE = $(FOAM_MODULE_APPBIN)/cosODEFoam

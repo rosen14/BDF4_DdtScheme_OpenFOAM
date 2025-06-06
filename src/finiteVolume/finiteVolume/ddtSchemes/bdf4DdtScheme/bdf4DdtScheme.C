@@ -516,7 +516,7 @@ bdf4DdtScheme<Type>::fvmDdt
           - coefft0000*vf.oldTime().oldTime().oldTime().oldTime().primitiveField()
         );
     }
-    /*
+    
     Info << "------ BDF4 Coefficients ------" << nl;
     Info << "alphaC = " << alphaC << nl;
     Info << "beta   = " << beta   << nl;
@@ -527,7 +527,7 @@ bdf4DdtScheme<Type>::fvmDdt
     Info << "c00    = " << coefft00   << nl;
     Info << "c0     = " << coefft0    << nl;
     Info << "c      = " << coefft     << nl;
-    */
+    
     /*
     Info << "------ Fields ------" << nl;
     Info << "vf: " << vf.primitiveField() << nl;

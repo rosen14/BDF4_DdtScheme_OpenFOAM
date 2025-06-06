@@ -1,8 +1,14 @@
 import os
 import re
+import math
 
 def es_tiempo(nombre):
     return re.match(r"^\d+(\.\d+)?$", nombre)
+
+
+def solucion_exacta(t, c=1.0):
+    return math.exp(-c*t)
+
 
 def extraer_phi_uniform(carpeta_caso):
     tiempos = sorted(
@@ -21,7 +27,9 @@ def extraer_phi_uniform(carpeta_caso):
             for linea in f:
                 if "internalField" in linea and "uniform" in linea:
                     valor = float(linea.split("uniform")[1].replace(";", "").strip())
-                    datos.append((float(tiempo), valor))
+                    t_val = float(tiempo)
+                    phi_ex = solucion_exacta(t_val, 5.0)
+                    datos.append((t_val, valor, phi_ex))
                     break
     return datos
 
@@ -33,9 +41,9 @@ def main():
         datos = extraer_phi_uniform(caso)
         if datos:
             with open(f"phi_vs_time_{caso}.csv", "w") as f:
-                f.write("time,phi\n")
-                for t, phi in datos:
-                    f.write(f"{t},{phi}\n")
+                f.write("time,phi,phi_exact\n")
+                for t, phi, phi_ex in datos:
+                    f.write(f"{t},{phi},{phi_ex}\n")
             print(f"Guardado: phi_vs_time_{caso}.csv")
         else:
             print(f"No se encontró 'phi' en el caso '{caso}'")

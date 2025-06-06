@@ -3,6 +3,7 @@
         "bdf4DdtSchemes.C": "cpp",
         "bdf4DdtScheme.C": "cpp",
         "icoFoam.C": "cpp",
-        "expDecayODE.C": "cpp"
+        "expDecayODE.C": "cpp",
+        "cosODEFoam.C": "cpp"
     }
 }
