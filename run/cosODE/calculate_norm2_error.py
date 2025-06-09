@@ -2,7 +2,7 @@ import csv
 import math
 import sys
 
-def calcular_norma_error(nombre_archivo, skip=300):
+def calcular_norma_error(nombre_archivo, skip=0):
     tiempos = []
     phi_vals = []
     phi_exact_vals = []
@@ -33,7 +33,7 @@ def calcular_norma_error(nombre_archivo, skip=300):
     norma = math.sqrt(sum(e**2 for e in errores))
     #print(1/(len(errores)-1))
     #print((tiempos[1] - tiempos[0])/(tiempos[-1] - tiempos[0]))
-    error = norma*math.sqrt(1/(len(errores)-1))  # Norma L2
+    error = norma*math.sqrt((tiempos[1] - tiempos[0])/(tiempos[-1] - tiempos[0]))  # Norma L2
     return error
 
 if __name__ == "__main__":

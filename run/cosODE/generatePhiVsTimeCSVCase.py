@@ -28,7 +28,7 @@ def extraer_phi_uniform(carpeta_caso):
                 if "internalField" in linea and "uniform" in linea:
                     valor = float(linea.split("uniform")[1].replace(";", "").strip())
                     t_val = float(tiempo)
-                    phi_ex = solucion_exacta(t_val, 10000.0)
+                    phi_ex = solucion_exacta(t_val, 1000.0)
                     datos.append((t_val, valor, phi_ex))
                     break
     return datos

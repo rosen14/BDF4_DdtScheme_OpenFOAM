@@ -34,13 +34,13 @@ purgeWrite      0;
 
 writeFormat     ascii;
 
-writePrecision  15;
+writePrecision  16;
 
 writeCompression off;
 
 timeFormat      general;
 
-timePrecision   10;
+timePrecision   16;
 
 runTimeModifiable true;
 

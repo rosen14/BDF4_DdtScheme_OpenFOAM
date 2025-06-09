@@ -14,7 +14,7 @@ def extraer_dt(nombre_archivo):
         return dt_float
     return None
 
-def calcular_error_csv(nombre_archivo, saltar=3):
+def calcular_error_csv(nombre_archivo, saltar=0):
     """Calcula el error L2 entre phi y phi_exact, descartando los primeros `saltar` pasos"""
     tiempos, phi, phi_exact = [], [], []
 
@@ -37,7 +37,7 @@ def calcular_error_csv(nombre_archivo, saltar=3):
     return error
 
 def main():
-    archivos = [f for f in os.listdir() if f.startswith("phi_vs_time_case_bdf3_dt_") and f.endswith(".csv")]
+    archivos = [f for f in os.listdir() if f.startswith("phi_vs_time_case_bdf4_dt_") and f.endswith(".csv")]
     dt_list = []
     error_list = []
 
