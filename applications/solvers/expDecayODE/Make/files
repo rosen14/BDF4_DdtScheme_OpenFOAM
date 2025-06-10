@@ -1,3 +1,0 @@
-expDecayODE.C
-
-EXE = $(FOAM_MODULE_APPBIN)/expDecayODE
