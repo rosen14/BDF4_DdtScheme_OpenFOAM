@@ -1,4 +1,4 @@
-./platforms/linux64GccDPInt32Debug
+/platforms/linux64GccDPInt32Debug/
 
 # Ignorar solo carpetas que sean números enteros del 1 al 9
 **/[1-9]*/
