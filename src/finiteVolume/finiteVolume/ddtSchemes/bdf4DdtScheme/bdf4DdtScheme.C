@@ -82,7 +82,7 @@ scalar bdf4DdtScheme<Type>::deltaT00_(const GeoField& vf) const
     }
     else
     {
-        const scalar deltaT00 = deltaT0_();
+        const scalar deltaT00 = deltaT0_(); // WARNING: Needs to be implemented
         return deltaT00;
     }
 }
@@ -97,7 +97,7 @@ scalar bdf4DdtScheme<Type>::deltaT000_(const GeoField& vf) const
     }
     else
     {
-        const scalar deltaT000 = deltaT0_();
+        const scalar deltaT000 = deltaT0_(); // WARNING: Needs to be implemented
         return deltaT000;
     }
 }
@@ -516,7 +516,7 @@ bdf4DdtScheme<Type>::fvmDdt
           - coefft0000*vf.oldTime().oldTime().oldTime().oldTime().primitiveField()
         );
     }
-    
+    /*
     Info << "------ BDF4 Coefficients ------" << nl;
     Info << "alphaC = " << alphaC << nl;
     Info << "beta   = " << beta   << nl;
@@ -527,7 +527,7 @@ bdf4DdtScheme<Type>::fvmDdt
     Info << "c00    = " << coefft00   << nl;
     Info << "c0     = " << coefft0    << nl;
     Info << "c      = " << coefft     << nl;
-    
+    */
     /*
     Info << "------ Fields ------" << nl;
     Info << "vf: " << vf.primitiveField() << nl;
@@ -536,7 +536,6 @@ bdf4DdtScheme<Type>::fvmDdt
     Info << "vf.oldTime().oldTime().oldTime() " << vf.oldTime().oldTime().oldTime().primitiveField() << nl;
     Info << "vf.oldTime().oldTime().oldTime().oldTime() " << vf.oldTime().oldTime().oldTime().oldTime().primitiveField() << nl;
     Info << "--------------------------------" << endl;
-    
     
     Info << "------ DeltaTimes ------" << nl;
     Info << "deltaT_(): " << deltaT_() << nl;

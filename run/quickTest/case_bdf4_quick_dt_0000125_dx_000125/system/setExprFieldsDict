@@ -1,0 +1,87 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setExprFieldsDict;
+}
+
+defaultFieldValues
+(
+    volScalarFieldValue T 0
+);
+
+expressions
+(
+    T
+    {
+        field      T;
+        dimensions [0 0 0 1 0 0 0];
+        variables
+        (
+            "xc = 0.4"
+            "sigma = 0.05"
+        );
+        expression
+        #{
+            exp(-pow((pos().x() - xc), 2)/(2*sigma*sigma))
+        #};
+    }
+    T_0
+    {
+        field      T_0;
+        dimensions [0 0 0 1 0 0 0];
+        variables
+        (
+            "xc = 0.4"
+            "sigma = 0.05"
+            "U = 0.1"
+            "dt = 0.0000125"
+        );
+        expression
+        #{
+            exp(-pow((pos().x() - xc + U*dt), 2)/(2*sigma*sigma))
+        #};
+    }
+    T_0_0
+    {
+        field      T_0_0;
+        dimensions [0 0 0 1 0 0 0];
+        variables
+        (
+            "xc = 0.4"
+            "sigma = 0.05"
+            "U = 0.1"
+            "dt = 0.0000125"
+        );
+        expression
+        #{
+            exp(-pow((pos().x() - xc + 2*U*dt), 2)/(2*sigma*sigma))
+        #};
+    }
+    T_0_0_0
+    {
+        field      T_0_0_0;
+        dimensions [0 0 0 1 0 0 0];
+        variables
+        (
+            "xc = 0.4"
+            "sigma = 0.05"
+            "U = 0.1"
+            "dt = 0.0000125"
+        );
+        expression
+        #{
+            exp(-pow((pos().x() - xc + 3*U*dt), 2)/(2*sigma*sigma))
+        #};
+    }
+
+);
