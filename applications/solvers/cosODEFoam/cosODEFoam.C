@@ -25,42 +25,15 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    icoFoam
-
-Group
-    grpIncompressibleSolvers
+    cosODEFoam
 
 Description
-    Transient solver for incompressible, laminar flow of Newtonian fluids.
-
-    \heading Solver details
-    The solver uses the PISO algorithm to solve the continuity equation:
-
-        \f[
-            \div \vec{U} = 0
-        \f]
-
-    and momentum equation:
-
-        \f[
-            \ddt{\vec{U}}
-          + \div \left( \vec{U} \vec{U} \right)
-          - \div \left(\nu \grad \vec{U} \right)
-          = - \grad p
-        \f]
-
-    Where:
-    \vartable
-        \vec{U} | Velocity
-        p       | Pressure
-    \endvartable
-
-    \heading Required fields
-    \plaintable
-        U       | Velocity [m/s]
-        p       | Kinematic pressure, p/rho [m2/s2]
-    \endplaintable
-
+    This solver solves the equation
+    \f[
+        \frac{\partial \phi}{\partial t} + \lambda \sin(\lambda t) = 0
+    \f]
+    where \f$\phi\f$ is a scalar field, \f$\lambda\f$ is a constant, and
+    \f$t\f$ is time. The solution is a cosine function of time.
 \*---------------------------------------------------------------------------*/
 
 #include "fvCFD.H"
