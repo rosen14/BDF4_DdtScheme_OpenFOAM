@@ -31,6 +31,7 @@ def extraer_phi_uniform(carpeta_caso):
                     phi_ex = solucion_exacta(t_val, 1000.0)
                     datos.append((t_val, valor, phi_ex))
                     break
+
     return datos
 
 def main():
@@ -39,6 +40,7 @@ def main():
 
     for caso in carpetas:
         datos = extraer_phi_uniform(caso)
+        datos.sort(key=lambda x: x[0])
         if datos:
             with open(f"phi_vs_time_{caso}.csv", "w") as f:
                 f.write("time,phi,phi_exact\n")
